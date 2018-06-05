@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: telephone-service
+  profiles:
+    active: chaos-monkey
+
+server:
+  port: 4433
+  servlet:
+    contextPath: /telephoneservice
+    
+chaos:
+  monkey:
+    enabled: true
+    assaults:
+      level: 3
+      latencyRangeStart: 5000
+      latencyRangeEnd: 20000
+      latencyActive: true
+      exceptionsActive: false
+      killApplicationActive: false
+    watcher:
+      restController: true
+      controller: false
+      service: false
+      repository: false
+      component: false
